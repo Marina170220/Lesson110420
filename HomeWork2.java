@@ -15,32 +15,21 @@ public class HomeWork2 {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        try {
-            FileWriter writeToFile = new FileWriter(randomNumbers);
-
+      
             for (int i = 0; i < arrayOfRandomNumbers.length; i++) {
                 arrayOfRandomNumbers[i] = number.nextInt(20);
                 System.out.print(arrayOfRandomNumbers[i] + " ");
-                try {
-                    writeToFile.write(arrayOfRandomNumbers[i]);
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
-            }
+                
             System.out.println();
             Arrays.sort(arrayOfRandomNumbers);
+                
             for (int i = 0; i < arrayOfRandomNumbers.length; i++) {
                 System.out.print(arrayOfRandomNumbers[i] + " ");
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        System.out.println();
+       
         try (FileWriter writer = new FileWriter(randomNumbers, false)) {
             String newTextOfTheFile = Arrays.toString(arrayOfRandomNumbers);
-            System.out.println(newTextOfTheFile);
+            System.out.println("\n"+newTextOfTheFile);
             writer.write(newTextOfTheFile);
             writer.flush();
         } catch (IOException ex) {
